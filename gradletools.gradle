@@ -15,7 +15,7 @@ project.ext.set("resource_pack_format", '15')
 project.ext.set("data_pack_format", '10')
 project.ext.set("exnihilo_version", '1.21.1-7.0.3-build.LOCAL')
 project.ext.set("exnihilo_version_range", '[7.0.0, 8.0.0)')
-project.ext.set("novacore_version", '1.21.1-4.0.1-build.LOCAL')
+project.ext.set("novacore_version", '7454005')
 project.ext.set("novacore_version_range", '[4.0.0, 5.0.0)')
 
 ext.getChangelogText =  {
@@ -81,14 +81,14 @@ ext.novacore = {
     def includedNovaCore = gradle.includedBuilds.find { it.name == "NovaCore" }
     if (includedNovaCore != null) {
         println "Using local NovaCore module from includeBuild()."
-        dependencies.api "novamachina.novacore:NovaCore:${novacore_version}"
+        dependencies.api "curse.maven:novacoretempfix-421856-1427837:${novacore_version}"
     } else {
         if (findProject(':NovaCore') != null) {
             println "Using local NovaCore module."
-            dependencies.api project(':NovaCore')
+            dependencies.api "curse.maven:novacoretempfix-421856-1427837:${novacore_version}"
         } else {
             println "Using remote novacore library."
-            dependencies.api "novamachina.novacore:novacore:${novacore_version}"
+            dependencies.api "curse.maven:novacoretempfix-421856-1427837:${novacore_version}"
         }
     }
 }
